@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <!--удаляю дефолтные стили-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--подключаю свои стили-->
+    <title>Погода</title>
+</head>
+
+<body>
+    <div class="mainDiv">
+        <header>
+            <h1>ПОГОДА СЕГОДНЯ</h1>
+            <form class="firstBlock" name="searchBlock">
+                <input id="MainSearch" type="search" autocomplete="off" spellcheck="false" aria-live="polite" autofocus
+                    placeholder="Введите название города" name="cityname" onClick="reLoad()">
+                <!-- подключаю функцию обновления страницы при новом вводе -->
+                <input type="image" src="img/search_2.png" width="25" onClick="onClick(); return false">
+                <!--запускаю скрипт-->
+            </form>
+        </header>
+        <div class="firstDiv">
+            <p class="name"></p>
+            <!--город-->
+            <p class="now"></p>
+            <!--дата сейчас-->
+        </div>
+        <div class="errorDiv">
+            <!--ошибка при неправильном вводе-->
+            <p class="errorDivOne"></p>
+            <!--404-->
+            <p class="errorDivTwo"></p>
+            <!--not found-->
+            <p class="errorDivThree"></p>
+            <!--введите город заново-->
+        </div>
+        <div class="secondDiv">
+            <!--погодные условия сейчас-->
+        </div>
+        <div class="thirdDiv">
+
+            <div class="thirdDivWrapOne"></div>
+            <!--иконка погоды сейчас-->
+            <div class="thirdDivWrapTwo"></div>
+            <!--температура сейчас-->
+            <ul class="thirdDivWrapThree">
+                <li class="one"></li>
+                <!--минимальная температура сегодня-->
+                <li class="two"></li>
+                <!--максимальная температура сегодня-->
+                <li class="three"></li>
+                <!--скорость ветра сейчас-->
+            </ul>
+        </div>
+
+        <div class="fourthDiv">
+            <!--погода по часам-->
+            <p class="hourly">
+
+            </p>
+        </div>
+        <div class="fifthDivWraps">
+            <!--блок с погодными колонками-->
+
+            <div class="fifthDivWrapOne">
+                <!--первая колонка-->
+                <p class="wrapOneOne"></p>
+                <!--день недели-->
+                <div class="emptyDiv"></div>
+                <!--пустая иконка-->
+                <p class="wrapOneTwo"></p>
+                <!--"температура"-->
+                <br><br>
+                <p class="wrapOneThree"></p>
+                <!--"скорость ветра"-->
+                <br><br>
+                <p class="wrapOneFour"></p>
+                <!--"погодные условия"-->
+            </div>
+
+            <div class="fifthDivWrapTwo">
+                <!--вторая колонка-->
+                <p class="wrapTwoOne"></p>
+                <!--время через 3 часа-->
+                <div class="wrapTwoTwo"></div>
+                <!--погодная иконка через 3 часа-->
+                <p class="wrapTwoThree"></p><br><br>
+                <!--температура через 3 часа-->
+                <p class="wrapTwoFour"></p><br><br>
+                <!--скорость ветра через 3 часа-->
+                <p class="wrapTwoFive"></p>
+                <!--погодные условия через 3 часа-->
+            </div>
+
+            <div class="fifthDivWrapThree">
+                <!--третья колонка-->
+                <p class="wrapThreeOne"></p>
+                <!--время через 6 часов-->
+                <div class="wrapThreeTwo"></div>
+                <!--погодная иконка через 6 часов-->
+                <p class="wrapThreeThree"></p><br><br>
+                <!--температура через 6 часов-->
+                <p class="wrapThreeFour"></p><br><br>
+                <!--скорость ветра через 6 часов-->
+                <p class="wrapThreeFive"></p>
+                <!--погодные условия через 6 часов-->
+            </div>
+
+            <div class="fifthDivWrapFour">
+                <!--четвертая колонка-->
+                <p class="wrapFourOne"></p>
+                <!--время через 9 часов-->
+                <div class="wrapFourTwo"></div>
+                <!--погодная иконка через 9 часов-->
+                <p class="wrapFourThree"></p><br><br>
+                <!--температура через 9 часов-->
+                <p class="wrapFourFour"></p><br><br>
+                <!--скорость ветра через 9 часов-->
+                <p class="wrapFourFive"></p>
+                <!--погодные условия через 9 часов-->
+            </div>
+
+            <div class="fifthDivWrapFive">
+                <!--пятая колонка-->
+                <p class="wrapFiveOne"></p>
+                <!--время через 12 часов-->
+                <div class="wrapFiveTwo"></div>
+                <!--погодная иконка через 12 часов-->
+                <p class="wrapFiveThree"></p><br><br>
+                <!--температура через 12 часов-->
+                <p class="wrapFiveFour"></p><br><br>
+                <!--скорость ветра через 12 часов-->
+                <p class="wrapFiveFive"></p>
+                <!--погодные условия через 12 часов-->
+            </div>
+
+            <div class="fifthDivWrapSix">
+                <!--шестая колонка-->
+                <p class="wrapSixOne"></p>
+                <!--время через 15 часов-->
+                <div class="wrapSixTwo"></div>
+                <!--погодная иконка через 15 часов-->
+                <p class="wrapSixThree"></p><br><br>
+                <!--температура через 15 часов-->
+                <p class="wrapSixFour"></p><br><br>
+                <!--скорость ветра через 15 часов-->
+                <p class="wrapSixFive"></p>
+                <!--погодные условия через 15 часов-->
+            </div>
+
+            <div class="fifthDivWrapSeven">
+                <!--седьмая колонка-->
+                <p class="wrapSevenOne"></p>
+                <!--время через 18 часов-->
+                <div class="wrapSevenTwo"></div>
+                <!--погодная иконка через 18 часов-->
+                <p class="wrapSevenThree"></p><br><br>
+                <!--температура через 18 часов-->
+                <p class="wrapSevenFour"></p><br><br>
+                <!--скорость ветра через 18 часов-->
+                <p class="wrapSevenFive"></p>
+                <!--погодные условия через 18 часов-->
+            </div>
+
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <!--подключаю скрипт-->
+</body>
+
+</html>
