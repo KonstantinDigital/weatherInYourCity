@@ -4,7 +4,7 @@ function reLoad() {
 
 function onClick() {
     let request;
-    var myRequest = "http://api.openweathermap.org/data/2.5/weather?q=" + document.searchBlock.cityname.value + "&units=metric&lang=ru&appid=61030a1cc48f4ccbcbaf3cd7db4c106d"; //создаю запрос со значением города, введенного пользователем, выбираю градусы в цельсиях и русский язык
+    var myRequest = "http://api.openweathermap.org/data/2.5/weather?q=" + document.searchBlock.cityname.value + "&units=metric&lang=ru&appid=your_api_key"; //создаю запрос со значением города, введенного пользователем, выбираю градусы в цельсиях и русский язык
 
     if (window.XMLHttpRequest) {
         request = new XMLHttpRequest();
@@ -32,7 +32,7 @@ function onClick() {
             document.querySelector('.errorDivThree').innerHTML = 'Пожалуйста, введите правильное название города';
         } //создаю условие, при невыполнении которого выскочит ошибка
 
-        var myHourlyRequest = "https://api.openweathermap.org/data/2.5/onecall?lat=" + dataJSON['coord']['lat'] + "&lon=" + dataJSON['coord']['lon'] + "&units=metric&lang=ru&exclude=minutely&exclude=daily&appid=2d59893a42e9acfd4079dcb30a1019fd"; //создаю второй запрос для почасовой погоды с данными из первого запроса
+        var myHourlyRequest = "https://api.openweathermap.org/data/2.5/onecall?lat=" + dataJSON['coord']['lat'] + "&lon=" + dataJSON['coord']['lon'] + "&units=metric&lang=ru&exclude=minutely&exclude=daily&appid=your_api_key"; //создаю второй запрос для почасовой погоды с данными из первого запроса
 
         var xmlRequest = new XMLHttpRequest();
         xmlRequest.open("GET", myHourlyRequest);
